@@ -82,7 +82,7 @@
                 <div *ngIf="f.Email.errors.required">Must not be empty!</div>
             </div>
         </div>
-
+        <span style="color: red;">{{postError}}</span>
         <button
             type="submit"
             id="submitBtn"
@@ -91,7 +91,7 @@
             <!-- [disabled]="!form.valid" -->
             Submit
         </button>
-        {{postError}}
+        
     </form>
 </div>
   

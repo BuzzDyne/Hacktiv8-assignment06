@@ -77,6 +77,7 @@
                 id="Email"
                 formControlName="Email"
             >
+            <div style="color: red;">{{postError}}</div>
             <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
                 <div *ngIf="f.Email.errors.email">Invalid email!</div>
                 <div *ngIf="f.Email.errors.required">Must not be empty!</div>

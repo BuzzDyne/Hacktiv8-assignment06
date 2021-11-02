@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class CreateUserModalComponent {
   submitted = false
   form: FormGroup
+  postError: string = ''
 
   constructor(
     public activeModal: NgbActiveModal, 
@@ -69,7 +70,7 @@ export class CreateUserModalComponent {
         console.log(result);
       },
       error => {
-        alert(`Something Bad has happenned!\n Error;{${error}}`)
+        this.postError = error
       },
       () => {
         //OnComplete
