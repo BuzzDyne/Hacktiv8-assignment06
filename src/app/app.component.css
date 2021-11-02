@@ -7,3 +7,15 @@
 navbar {
     margin-bottom: 2em;
 }
+
+.my-toast {
+    position: fixed; 
+    right: 20px; 
+    top: 20px;
+}
+
+.my-fade {
+    /* transition: opacity .15s linear; */
+    background-color: rgba(90, 90, 90, 0.9);
+    color: white;
+}

@@ -16,6 +16,9 @@ export class AppComponent implements OnInit{
   users : UserIn[] = []
   postError : any
 
+  toastText: string = ""
+  isToastShowing: boolean = false
+
   constructor(
     private modalService: NgbModal,
     public userService: UserService) {
@@ -39,7 +42,7 @@ export class AppComponent implements OnInit{
         if(res == "onSuccess") {
           // TODO 1 
           // this.modalService.open(CreateUserModalComponent)
-          alert("Data Submited!")
+          this.showToast("Data Created!")
           this.refreshUserTable()
         }
       }, 
@@ -86,7 +89,7 @@ export class AppComponent implements OnInit{
         if(res == "onSuccess") {
           // TODO 1 
           // this.modalService.open(CreateUserModalComponent)
-          alert("Data Edited!!")
+          this.showToast("Data Edited!")
           this.refreshUserTable()
         }
       }, 
@@ -100,6 +103,16 @@ export class AppComponent implements OnInit{
   handleDelete(id: number) {
     console.log(`Deleting ID ${id}`);
     this.userService.deleteUserById(id).subscribe(() => this.refreshUserTable())
+  }
+
+  showToast(text: string) {
+    this.toastText = text
+    this.isToastShowing = true
+  }
+
+  onToastHidden() {
+    this.isToastShowing = false
+    // setTimeout(() => this.isToastShowing = true, 2000);
   }
 }
 

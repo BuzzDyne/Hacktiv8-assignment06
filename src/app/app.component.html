@@ -44,4 +44,13 @@
         </tbody>
     </table>
   </div>
+
+  <div class="my-toast">
+    <ngb-toast 
+      *ngIf="isToastShowing"
+      class="my-fade"
+      [autohide]="true"
+      [delay]="2000"
+      (hidden)="onToastHidden()">{{toastText}}</ngb-toast>
+  </div>
 </div>
