@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h4 class="modal-title">Edit Staff</h4>
+    <span
+        class="x-btn"
+        (click)="activeModal.dismiss('Cross click')">
+        <span>&times;</span>
+    </span>
+</div>
+
+<div class="modal-body">
+    Are you sure to delete user of ID ({{userID}})?
+</div>
+
+<div class="modal-footer">
+    <button 
+        type="button" 
+        class="btn btn-sm btn-light"
+        (click)="activeModal.close('Close click')">
+    Cancel
+    </button>
+    <button 
+        type="button" 
+        class="btn btn-sm btn-danger" 
+        (click)="activeModal.close('Close click')">
+    Delete
+    </button>
+</div>

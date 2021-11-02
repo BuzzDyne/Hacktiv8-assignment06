@@ -46,6 +46,12 @@ export class EditUserModalComponent implements OnInit {
   get f() {return this.form.controls}
 
   onSubmit() {
+    this.submitted = true
+
+    if(this.form.invalid) {
+      return
+    }
+
     let u = {
       "Title"           : this.f["Title"].value,
       "FirstName"       : this.f["FirstName"].value,

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateUserModalComponent } from './update-user-modal.component';
+import { DeleteUserModalComponent } from './delete-user-modal.component';
 
-describe('UpdateUserModalComponent', () => {
-  let component: UpdateUserModalComponent;
-  let fixture: ComponentFixture<UpdateUserModalComponent>;
+describe('DeleteUserModalComponent', () => {
+  let component: DeleteUserModalComponent;
+  let fixture: ComponentFixture<DeleteUserModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateUserModalComponent ]
+      declarations: [ DeleteUserModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateUserModalComponent);
+    fixture = TestBed.createComponent(DeleteUserModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

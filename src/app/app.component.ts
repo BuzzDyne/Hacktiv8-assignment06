@@ -5,6 +5,7 @@ import { UserService } from './services/user.service';
 import { isEmailExistErrorMsg } from './utils/Utils';
 import { CreateUserModalComponent } from './components/create-user-modal/create-user-modal.component';
 import { EditUserModalComponent } from './components/edit-user-modal/edit-user-modal.component';
+import { DeleteUserModalComponent } from './components/delete-user-modal/delete-user-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -101,8 +102,20 @@ export class AppComponent implements OnInit{
   }
 
   handleDelete(id: number) {
-    console.log(`Deleting ID ${id}`);
-    this.userService.deleteUserById(id).subscribe(() => this.refreshUserTable())
+    const modalRef = this.modalService.open(DeleteUserModalComponent)
+    modalRef.componentInstance.userID = id
+
+    modalRef.result.then(
+      (res) => { //Success (closed)
+        this.userService.deleteUserById(id).subscribe(() => this.refreshUserTable())
+        this.showToast("Data Deleted!")
+      }, 
+      (reason) => { //Dismissed
+        console.log(`Reason = ${reason}`);
+      }
+    )
+
+
   }
 
   showToast(text: string) {
@@ -115,7 +128,3 @@ export class AppComponent implements OnInit{
     // setTimeout(() => this.isToastShowing = true, 2000);
   }
 }
-
-// OPTIONAL
-// 1. Handle Backend Validations (Email)
-// 2. Add modal to show POST is done (current alert) ngb-toast
