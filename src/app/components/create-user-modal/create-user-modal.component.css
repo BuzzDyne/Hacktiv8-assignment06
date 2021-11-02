@@ -1,0 +1,19 @@
+.x-btn{
+    height: 2em;
+    width: 2em;
+    /* background-color: chocolate; */
+    text-align: center;
+    cursor: pointer;
+}
+
+.x-btn>span{
+    font-size: 1.3em;
+}
+
+#submitBtn{
+    margin-top: 1em;
+}
+
+label:not(:first-child) {
+    margin-top: 1em;
+}

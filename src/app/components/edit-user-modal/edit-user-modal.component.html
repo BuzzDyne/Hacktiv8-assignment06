@@ -1,0 +1,105 @@
+<div class="modal-header">
+    <h4 class="modal-title">Edit Staff</h4>
+    <span
+        class="x-btn"
+        (click)="activeModal.dismiss('Cross click')">
+        <span>&times;</span>
+    </span>
+</div>
+
+<div class="modal-body">
+    <form 
+        [formGroup]="form" 
+        (ngSubmit)="onSubmit()"
+        class="container">
+        <div class="form-group">
+            <label for="Title">Title</label>
+            <input 
+                type="text" 
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.Title.errors }"
+                name="Title"
+                id="Title"
+                formControlName="Title"
+            >
+            <div *ngIf="submitted && f.Title.errors" class="invalid-feedback">
+                <div *ngIf="f.Title.errors.required">Must not be empty!</div>
+            </div>
+            
+            <label for="FirstName">First Name</label>
+            <input 
+                type="text" 
+                class="form-control isInvalid"
+                [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }"
+                name="FirstName"
+                id="FirstName"
+                formControlName="FirstName"
+            >
+            <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+                <div *ngIf="f.FirstName.errors.required">Must not be empty!</div>
+            </div>
+
+            <label for="LastName">Last Name</label>
+            <input 
+                type="text" 
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }"
+                name="LastName"
+                id="LastName"
+                formControlName="LastName"
+            >
+            <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+                <div *ngIf="f.LastName.errors.required">Must not be empty!</div>
+            </div>
+            
+            <label for="Role">Role</label>
+            <select
+                class="form-control form-select"
+                [ngClass]="{ 'is-invalid': submitted && f.Role.errors }"
+                name="Role"
+                id="Role"
+                formControlName="Role"
+            >
+                <option value="" disabled>Select a role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+            <div *ngIf="submitted && f.Role.errors" class="invalid-feedback">
+                <div *ngIf="f.Role.errors.required">Must Pick a Role!</div>
+            </div>
+
+            <label for="Email">Email</label>
+            <input 
+                type="email" 
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
+                name="Email"
+                id="Email"
+                formControlName="Email"
+            >
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                <div *ngIf="f.Email.errors.email">Invalid email!</div>
+                <div *ngIf="f.Email.errors.required">Must not be empty!</div>
+            </div>
+        </div>
+
+        <button
+            type="submit"
+            id="submitBtn"
+            class="btn btn-success col-12"
+            >
+            <!-- [disabled]="!form.valid" -->
+            Submit
+        </button>
+        {{postError}}
+    </form>
+</div>
+  
+<!-- <div class="modal-footer">
+    <button 
+        type="button" 
+        class="btn btn-dark" 
+        (click)="activeModal.close('Close click')">
+    Close
+    </button>
+</div> -->
